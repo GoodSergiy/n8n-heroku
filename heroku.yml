@@ -1,0 +1,19 @@
+setup:
+    addons:
+      - plan: heroku-postgresql
+        as: DATABASE
+
+    config:
+        N8N_BASIC_AUTH_ACTIVE: true
+        N8N_BASIC_AUTH_USER: user
+        N8N_BASIC_AUTH_PASSWORD: pass
+        EXECUTIONS_DATA_SAVE_ON_ERROR: all
+        EXECUTIONS_DATA_SAVE_ON_SUCCESS: none
+        EXECUTIONS_DATA_SAVE_ON_PROGRESS: true
+        EXECUTIONS_DATA_SAVE_MANUAL_EXECUTIONS: false
+        EXECUTIONS_DATA_PRUNE: true
+        EXECUTIONS_DATA_MAX_AGE: 72
+
+build:
+    docker:
+        web: Dockerfile
